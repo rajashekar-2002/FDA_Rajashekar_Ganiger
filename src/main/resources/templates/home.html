@@ -68,22 +68,6 @@
           <a class="nav-link" th:href="@{/user/Joinedevents}"> Joined event</a>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Sort By
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" th:href="@{/user/sort/{sortby}(sortby=${'Joined'})}">
-              <i class="fa fa-home"></i> Joined
-            </a>
-            <a class="dropdown-item" th:href="@{/user/sort/{sortby}(sortby=${'Date'})}">
-              <i class="fa fa-expand"></i> Date
-            </a>
-            <a class="dropdown-item" th:href="@{/user/sort/{sortby}(sortby=${'username'})}">
-              <i class="fa fa-money-bill-alt"></i> username
-            </a>
-        </li>
-
 
 
 

@@ -1,6 +1,5 @@
 package com.EventManagement.eventManagement.controller;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -228,46 +227,6 @@ public String property_details(@PathVariable("id") Long id,Model model){
   }
 
 
-  @GetMapping("user/sort/{sortby}")
-  public String sortby(@PathVariable("sortby") String sortby, Model model) {
-      if (!check_user_Authenticated()) {
-          return "redirect:/login";
-      }
-  
-      // Fetch all events
-      List<Events> list_events = eventRepository.findAll();
-  
-      Long userId = userRepositoryForService.findByUsername(username).getId();
-  
-      // Create list with joined details
-      List<eventList_with_joined_Details> eventsWithJoinedDetails = new ArrayList<>();
-      for (Events event : list_events) {
-          boolean joined = event.getIntegers().contains(userId);
-          eventsWithJoinedDetails.add(new eventList_with_joined_Details(event, joined));
-      }
-  
-      // Sort based on the 'sortby' path variable
-      switch (sortby.toLowerCase()) {
-          case "joined":
-              // Sort by the 'joined' status - you might need to adjust this if you want specific sorting logic
-              eventsWithJoinedDetails.sort(Comparator.comparing(event -> !event.Joined()));
-              break;
-          case "date":
-              eventsWithJoinedDetails.sort(Comparator.comparing(event -> event.getEvent().getDateField()));
-              break;
-          case "username":
-              eventsWithJoinedDetails.sort(Comparator.comparing(event -> event.getEvent().getUsername()));
-              break;
-          default:
-              // Handle default case or invalid sortby value if necessary
-              break;
-      }
-  
-      // Add sorted list to the model
-      model.addAttribute("EventsList", eventsWithJoinedDetails);
-  
-      return "home";
-  }
 
 
 
