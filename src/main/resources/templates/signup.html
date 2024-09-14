@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script type="text/javascript" th:src="@{/js/action.js}"></script>
+</head>
+<body>
+    <!-- <h1>User Signup</h1>
+
+    <form th:action="@{/signup}" th:method="post" th:object="${user}">
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" th:field="${user.username}">
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" th:field="${user.password}">
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" th:field="${user.email}">
+        <br>
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" th:field="${user.phoneNumber}">
+        <br>
+
+        <button type="submit">Sign Up</button>
+
+    </form> -->
+
+
+
+
+
+
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .signup-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h1>User Signup</h1>
+
+        <form th:action="@{/signup}" th:method="post" th:object="${user}">
+
+            <div th:if="${error}">
+                <div class="alert alert-danger" role="alert">
+                    Username already taken . 
+                  </div>
+            </div>
+
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" th:field="${user.username}" required>
+            <br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" th:field="${user.password}" required>
+            <br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" th:field="${user.email}" required>
+            <br>
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" th:field="${user.phoneNumber}" required>
+            <br>
+
+            <button type="submit">Sign Up</button>
+            <p class="text-primary"> already have an account <a th:href="@{/login}">sign in</a></p>
+        </form>
+
+
+
+</body>
+</html>
